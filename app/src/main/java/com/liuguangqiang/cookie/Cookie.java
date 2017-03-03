@@ -49,6 +49,10 @@ public class Cookie extends LinearLayout {
         initViews();
     }
 
+    public int getLayoutGravity() {
+        return layoutGravity;
+    }
+
     private void initViews() {
         overshootMargin = getContext().getResources().getDimensionPixelSize(R.dimen.overshoot_margin);
         inflate(getContext(), R.layout.layout_cookie, this);
@@ -65,7 +69,9 @@ public class Cookie extends LinearLayout {
     }
 
     public void setParams(final CookieBar.Params params) {
+        Log.i(TAG, "setParams");
         if (params != null) {
+            hasMeasured = false;
             duration = params.duration;
             layoutGravity = params.layoutGravity;
 
@@ -95,6 +101,16 @@ public class Cookie extends LinearLayout {
                 ivIcon.setVisibility(VISIBLE);
                 ivIcon.setBackgroundResource(params.iconResId);
             }
+
+            int padding = getContext().getResources().getDimensionPixelSize(R.dimen.default_padding);
+            int paddingOvershoot = getContext().getResources().getDimensionPixelSize(R.dimen.overshoot_padding);
+
+            if (layoutGravity == Gravity.BOTTOM) {
+                layoutCookie.setPadding(padding, padding, padding, paddingOvershoot);
+            }
+
+            createInAnim();
+            createOutAnim();
         }
     }
 
@@ -110,16 +126,17 @@ public class Cookie extends LinearLayout {
     @Override
     protected void onMeasure(final int widthMeasureSpec, final int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        if (!hasMeasured) {
-            hasMeasured = true;
-            final ViewGroup.MarginLayoutParams params = (ViewGroup.MarginLayoutParams) getLayoutParams();
+        final ViewGroup.MarginLayoutParams params = (ViewGroup.MarginLayoutParams) getLayoutParams();
+        if (layoutGravity == Gravity.TOP) {
             params.topMargin = overshootMargin;
-            requestLayout();
+        } else {
+            params.topMargin = -overshootMargin;
         }
     }
 
     private void createInAnim() {
-        slideInAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.alerter_slide_in_from_top);
+        slideInAnimation = AnimationUtils.loadAnimation(getContext(),
+                layoutGravity == Gravity.BOTTOM ? R.anim.slide_in_from_bottom : R.anim.slide_in_from_top);
         slideInAnimation.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationStart(Animation animation) {
@@ -146,7 +163,8 @@ public class Cookie extends LinearLayout {
     }
 
     private void createOutAnim() {
-        slideOutAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.alerter_slide_out_to_top);
+        slideOutAnimation = AnimationUtils.loadAnimation(getContext(),
+                layoutGravity == Gravity.BOTTOM ? R.anim.slide_out_to_bottom : R.anim.slide_out_to_top);
         slideOutAnimation.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationStart(Animation animation) {
@@ -173,7 +191,6 @@ public class Cookie extends LinearLayout {
 
             @Override
             public void onAnimationEnd(final Animation animation) {
-                Log.i(TAG, "remove the cookie from its parent");
                 destroy();
             }
 

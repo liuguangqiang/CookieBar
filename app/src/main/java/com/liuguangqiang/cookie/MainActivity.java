@@ -1,11 +1,10 @@
 package com.liuguangqiang.cookie;
 
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
-import android.widget.TextView;
+import android.widget.Button;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -15,18 +14,37 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        new AlertDialog.Builder(this).setTitle("").show();
-
-        TextView tvTest = (TextView) findViewById(R.id.tv_test);
-        tvTest.setOnClickListener(new View.OnClickListener() {
+        Button btnTop = (Button) findViewById(R.id.btn_top);
+        btnTop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 new CookieBar
                         .Builder(MainActivity.this)
+                        .setIcon(R.mipmap.ic_launcher)
                         .setTitle("提示")
-                        .setMessage("你又变帅了！！")
+                        .setMessage("你又变帅了！！！")
                         .setDuration(3000)
-                        .setLayoutGravity(Gravity.TOP)
+                        .setAction("点击一下", new OnActionClickListener() {
+                            @Override
+                            public void onClick() {
+                                Toast.makeText(getApplicationContext(), "点击后，我更帅了!", Toast.LENGTH_LONG).show();
+                            }
+                        })
+                        .show();
+            }
+        });
+
+        Button btnBottom = (Button) findViewById(R.id.btn_bottom);
+        btnBottom.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                new CookieBar
+                        .Builder(MainActivity.this)
+                        .setIcon(R.mipmap.ic_launcher)
+                        .setTitle("提示")
+                        .setMessage("你又变帅了！！！")
+                        .setDuration(3000)
+                        .setLayoutGravity(Gravity.BOTTOM)
                         .setAction("点击一下", new OnActionClickListener() {
                             @Override
                             public void onClick() {

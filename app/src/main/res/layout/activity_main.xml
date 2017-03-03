@@ -10,9 +10,18 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.liuguangqiang.cookie.MainActivity">
 
-    <TextView
-        android:id="@+id/tv_test"
+    <Button
+        android:id="@+id/btn_top"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:layout_centerInParent="true"
+        android:text="Show a top cookie!" />
+
+    <Button
+        android:id="@+id/btn_bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_top"
+        android:layout_centerHorizontal="true"
+        android:text="Show a bottom cookie!" />
 </RelativeLayout>

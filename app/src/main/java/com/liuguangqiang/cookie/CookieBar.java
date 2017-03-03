@@ -1,6 +1,8 @@
 package com.liuguangqiang.cookie;
 
 import android.app.Activity;
+import android.view.Gravity;
+import android.view.View;
 import android.view.ViewGroup;
 
 /**
@@ -25,8 +27,13 @@ public class CookieBar {
     public void show() {
         if (cookieView != null) {
             final ViewGroup decorView = (ViewGroup) context.getWindow().getDecorView();
+            final ViewGroup content = (ViewGroup) decorView.findViewById(android.R.id.content);
             if (cookieView.getParent() == null) {
-                decorView.addView(cookieView);
+                if (cookieView.getLayoutGravity() == Gravity.BOTTOM) {
+                    content.addView(cookieView);
+                } else {
+                    decorView.addView(cookieView);
+                }
             }
         }
     }
@@ -39,6 +46,11 @@ public class CookieBar {
 
         public Builder(Activity activity) {
             this.context = activity;
+        }
+
+        public Builder setIcon(int iconResId) {
+            params.iconResId = iconResId;
+            return this;
         }
 
         public Builder setTitle(String title) {
@@ -94,7 +106,7 @@ public class CookieBar {
 
         public long duration = 1200;
 
-        public int layoutGravity;
+        public int layoutGravity = Gravity.TOP;
 
     }
 
