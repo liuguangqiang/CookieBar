@@ -2,7 +2,8 @@ Cookie
 ==============================================
 CookieBar is a lightweight library for showing a brief message at the top or bottom of the screen.
 
-
+## Screenshot
+<img src="arts/default.gif" width="30%"> <img src="arts/custom.gif" width="30%">
 
 ## License
 

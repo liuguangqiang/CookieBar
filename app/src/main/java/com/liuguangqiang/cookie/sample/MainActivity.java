@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 new CookieBar.Builder(MainActivity.this)
+                        .setTitle("这是一个标题")
                         .setMessage("你又变帅了！！！咦？怎么没有标题？")
                         .show();
             }
@@ -34,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
                 new CookieBar
                         .Builder(MainActivity.this)
                         .setTitle("提示")
+                        .setIcon(R.mipmap.ic_launcher)
                         .setMessage("你又变帅了！！！")
                         .setLayoutGravity(Gravity.BOTTOM)
                         .setAction("点击一下", new OnActionClickListener() {
