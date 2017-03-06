@@ -1,4 +1,4 @@
-package com.liuguangqiang.cookie;
+package com.liuguangqiang.cookie.sample;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -6,6 +6,9 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+
+import com.liuguangqiang.cookie.CookieBar;
+import com.liuguangqiang.cookie.OnActionClickListener;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,8 +21,7 @@ public class MainActivity extends AppCompatActivity {
         btnTop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new CookieBar
-                        .Builder(MainActivity.this)
+                new CookieBar.Builder(MainActivity.this)
                         .setIcon(R.mipmap.ic_launcher)
                         .setTitle("提示")
                         .setMessage("你又变帅了！！！")
