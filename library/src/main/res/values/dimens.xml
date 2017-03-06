@@ -4,6 +4,4 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
 
     <dimen name="default_padding">16dp</dimen>
-    <dimen name="overshoot_padding">66dp</dimen>
-    <dimen name="overshoot_margin">-50dp</dimen>
 </resources>

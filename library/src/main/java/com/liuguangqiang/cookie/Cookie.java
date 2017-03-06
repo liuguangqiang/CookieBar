@@ -32,7 +32,6 @@ public class Cookie extends LinearLayout {
     private ImageView ivIcon;
     private TextView btnAction;
     private long duration = 2000;
-    private int overshootMargin = 0;
     private int layoutGravity = Gravity.BOTTOM;
 
     public Cookie(@NonNull final Context context) {
@@ -53,12 +52,7 @@ public class Cookie extends LinearLayout {
     }
 
     private void initViews() {
-        overshootMargin = getContext().getResources().getDimensionPixelSize(R.dimen.overshoot_margin);
         inflate(getContext(), R.layout.layout_cookie, this);
-
-        setHapticFeedbackEnabled(true);
-        createInAnim();
-        createOutAnim();
 
         layoutCookie = (LinearLayout) findViewById(R.id.cookie);
         tvTitle = (TextView) findViewById(R.id.tv_title);
@@ -120,10 +114,8 @@ public class Cookie extends LinearLayout {
             }
 
             int padding = getContext().getResources().getDimensionPixelSize(R.dimen.default_padding);
-            int paddingOvershoot = getContext().getResources().getDimensionPixelSize(R.dimen.overshoot_padding);
-
             if (layoutGravity == Gravity.BOTTOM) {
-                layoutCookie.setPadding(padding, padding, padding, paddingOvershoot);
+                layoutCookie.setPadding(padding, padding, padding, padding);
             }
 
             createInAnim();
@@ -137,17 +129,6 @@ public class Cookie extends LinearLayout {
             super.onLayout(changed, l, 0, r, layoutCookie.getMeasuredHeight());
         } else {
             super.onLayout(changed, l, t, r, b);
-        }
-    }
-
-    @Override
-    protected void onMeasure(final int widthMeasureSpec, final int heightMeasureSpec) {
-        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        final ViewGroup.MarginLayoutParams params = (ViewGroup.MarginLayoutParams) getLayoutParams();
-        if (layoutGravity == Gravity.TOP) {
-            params.topMargin = overshootMargin;
-        } else {
-            params.topMargin = -overshootMargin;
         }
     }
 
@@ -224,6 +205,7 @@ public class Cookie extends LinearLayout {
             public void run() {
                 ViewParent parent = getParent();
                 if (parent != null) {
+                    Cookie.this.clearAnimation();
                     ((ViewGroup) parent).removeView(Cookie.this);
                 }
             }

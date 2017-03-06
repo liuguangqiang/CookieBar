@@ -10,7 +10,7 @@
     android:paddingBottom="16dp"
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
-    android:paddingTop="90dp">
+    android:paddingTop="40dp">
 
     <ImageView
         android:id="@+id/iv_icon"
