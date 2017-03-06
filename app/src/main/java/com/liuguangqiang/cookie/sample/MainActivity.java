@@ -22,8 +22,37 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 new CookieBar.Builder(MainActivity.this)
-                        .setIcon(R.mipmap.ic_launcher)
+                        .setMessage("你又变帅了！！！咦？怎么没有标题？")
+                        .show();
+            }
+        });
+
+        Button btnBottom = (Button) findViewById(R.id.btn_bottom);
+        btnBottom.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                new CookieBar
+                        .Builder(MainActivity.this)
                         .setTitle("提示")
+                        .setMessage("你又变帅了！！！")
+                        .setLayoutGravity(Gravity.BOTTOM)
+                        .setAction("点击一下", new OnActionClickListener() {
+                            @Override
+                            public void onClick() {
+                                Toast.makeText(getApplicationContext(), "点击后，我更帅了!", Toast.LENGTH_LONG).show();
+                            }
+                        })
+                        .show();
+            }
+        });
+
+        Button btnTopWithIcon = (Button) findViewById(R.id.btn_top_with_icon);
+        btnTopWithIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                new CookieBar.Builder(MainActivity.this)
+                        .setTitle("提示")
+                        .setIcon(R.mipmap.ic_launcher)
                         .setMessage("你又变帅了！！！")
                         .setDuration(3000)
                         .setAction("点击一下", new OnActionClickListener() {
@@ -36,17 +65,17 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button btnBottom = (Button) findViewById(R.id.btn_bottom);
-        btnBottom.setOnClickListener(new View.OnClickListener() {
+        Button btnCustom = (Button) findViewById(R.id.btn_custom);
+        btnCustom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new CookieBar
-                        .Builder(MainActivity.this)
-                        .setIcon(R.mipmap.ic_launcher)
+                new CookieBar.Builder(MainActivity.this)
                         .setTitle("提示")
                         .setMessage("你又变帅了！！！")
                         .setDuration(3000)
-                        .setLayoutGravity(Gravity.BOTTOM)
+                        .setBackgroundColor(R.color.colorPrimary)
+                        .setActionColor(android.R.color.white)
+                        .setTitleColor(R.color.colorAccent)
                         .setAction("点击一下", new OnActionClickListener() {
                             @Override
                             public void onClick() {

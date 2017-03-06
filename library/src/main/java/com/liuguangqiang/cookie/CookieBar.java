@@ -1,8 +1,9 @@
 package com.liuguangqiang.cookie;
 
 import android.app.Activity;
+import android.support.annotation.ColorRes;
+import android.support.annotation.DrawableRes;
 import android.view.Gravity;
-import android.view.View;
 import android.view.ViewGroup;
 
 /**
@@ -48,7 +49,7 @@ public class CookieBar {
             this.context = activity;
         }
 
-        public Builder setIcon(int iconResId) {
+        public Builder setIcon(@DrawableRes int iconResId) {
             params.iconResId = iconResId;
             return this;
         }
@@ -65,6 +66,26 @@ public class CookieBar {
 
         public Builder setDuration(long duration) {
             params.duration = duration;
+            return this;
+        }
+
+        public Builder setTitleColor(@ColorRes int titleColor) {
+            params.titleColor = titleColor;
+            return this;
+        }
+
+        public Builder setMessageColor(@ColorRes int messageColor) {
+            params.messageColor = messageColor;
+            return this;
+        }
+
+        public Builder setBackgroundColor(@ColorRes int backgroundColor) {
+            params.backgroundColor = backgroundColor;
+            return this;
+        }
+
+        public Builder setActionColor(@ColorRes int actionColor) {
+            params.actionColor = actionColor;
             return this;
         }
 
@@ -104,7 +125,15 @@ public class CookieBar {
 
         public int iconResId;
 
-        public long duration = 1200;
+        public int backgroundColor;
+
+        public int titleColor;
+
+        public int messageColor;
+
+        public int actionColor;
+
+        public long duration = 2000;
 
         public int layoutGravity = Gravity.TOP;
 

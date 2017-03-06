@@ -3,9 +3,9 @@ package com.liuguangqiang.cookie;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,7 +23,6 @@ public class Cookie extends LinearLayout {
 
     private static final String TAG = "cookie";
 
-    private boolean hasMeasured = false;
     private Animation slideInAnimation;
     private Animation slideOutAnimation;
 
@@ -32,7 +31,7 @@ public class Cookie extends LinearLayout {
     private TextView tvMessage;
     private ImageView ivIcon;
     private TextView btnAction;
-    private long duration = 1000;
+    private long duration = 2000;
     private int overshootMargin = 0;
     private int layoutGravity = Gravity.BOTTOM;
 
@@ -69,22 +68,35 @@ public class Cookie extends LinearLayout {
     }
 
     public void setParams(final CookieBar.Params params) {
-        Log.i(TAG, "setParams");
         if (params != null) {
-            hasMeasured = false;
             duration = params.duration;
             layoutGravity = params.layoutGravity;
 
+            //Icon
+            if (params.iconResId != 0) {
+                ivIcon.setVisibility(VISIBLE);
+                ivIcon.setBackgroundResource(params.iconResId);
+            }
+
+            //Title
             if (!TextUtils.isEmpty(params.title)) {
                 tvTitle.setVisibility(VISIBLE);
                 tvTitle.setText(params.title);
+                if (params.titleColor != 0) {
+                    tvTitle.setTextColor(ContextCompat.getColor(getContext(), params.titleColor));
+                }
             }
 
+            //Message
             if (!TextUtils.isEmpty(params.message)) {
                 tvMessage.setVisibility(VISIBLE);
                 tvMessage.setText(params.message);
+                if (params.messageColor != 0) {
+                    tvMessage.setTextColor(ContextCompat.getColor(getContext(), params.messageColor));
+                }
             }
 
+            //Action
             if (!TextUtils.isEmpty(params.action) && params.onActionClickListener != null) {
                 btnAction.setVisibility(VISIBLE);
                 btnAction.setText(params.action);
@@ -95,11 +107,16 @@ public class Cookie extends LinearLayout {
                         dismiss();
                     }
                 });
+
+                //Action Color
+                if (params.actionColor != 0) {
+                    btnAction.setTextColor(ContextCompat.getColor(getContext(), params.actionColor));
+                }
             }
 
-            if (params.iconResId != 0) {
-                ivIcon.setVisibility(VISIBLE);
-                ivIcon.setBackgroundResource(params.iconResId);
+            //Background
+            if (params.backgroundColor != 0) {
+                layoutCookie.setBackgroundColor(ContextCompat.getColor(getContext(), params.backgroundColor));
             }
 
             int padding = getContext().getResources().getDimensionPixelSize(R.dimen.default_padding);
