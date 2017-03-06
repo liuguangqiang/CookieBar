@@ -7,6 +7,17 @@ import android.view.Gravity;
 import android.view.ViewGroup;
 
 /**
+ * CookieBar is a lightweight library for showing a brief message at the top or bottom of the screen.
+ * <p>
+ * <pre>
+ * new CookieBar
+ *      .Builder(MainActivity.this)
+ *      .setTitle("TITLE")
+ *      .setMessage("MESSAGE")
+ *      .setAction("ACTION", new OnActionClickListener() {})
+ *      .show();
+ * </pre>
+ * <p>
  * Created by Eric on 2017/3/2.
  */
 public class CookieBar {

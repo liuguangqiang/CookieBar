@@ -19,9 +19,7 @@ import android.widget.TextView;
 /**
  * Created by Eric on 2017/3/2.
  */
-public class Cookie extends LinearLayout {
-
-    private static final String TAG = "cookie";
+final class Cookie extends LinearLayout {
 
     private Animation slideInAnimation;
     private Animation slideOutAnimation;
@@ -53,7 +51,6 @@ public class Cookie extends LinearLayout {
 
     private void initViews() {
         inflate(getContext(), R.layout.layout_cookie, this);
-
         layoutCookie = (LinearLayout) findViewById(R.id.cookie);
         tvTitle = (TextView) findViewById(R.id.tv_title);
         tvMessage = (TextView) findViewById(R.id.tv_message);
