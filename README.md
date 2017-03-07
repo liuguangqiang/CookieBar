@@ -24,6 +24,36 @@ dependencies {
 </dependency>
 ```
 
+## A simple CookieBar.
+```
+ new CookieBar.Builder(MainActivity.this)
+                        .setTitle("TITLE")
+                        .setMessage("MESSAGE")
+                        .show();
+```
+
+## A CookieBar with a icon and a action button.
+```
+ new CookieBar.Builder(MainActivity.this)
+                        .setTitle("TITLE")
+                        .setIcon(R.mipmap.ic_launcher)
+                        .setMessage("MESSAGE")
+                        .setAction("ACTION", new OnActionClickListener() {
+                            @Override
+                            public void onClick() {
+                            }
+                        })
+                        .show();
+```
+
+## Custom Style
+ * layoutGravity
+ * backgroundColor
+ * titleColor
+ * messageColor
+ * actionColor
+ * duration
+
 ## License
 
     Copyright 2017 Eric Liu
