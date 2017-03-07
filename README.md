@@ -5,6 +5,25 @@ CookieBar is a lightweight library for showing a brief message at the top or bot
 ## Screenshot
 <img src="arts/default.gif" width="30%"> <img src="arts/custom.gif" width="30%">
 
+## Usage
+### Gradle
+
+```
+dependencies {
+   	compile 'com.liuguangqiang.cookie:library:0.1'
+}
+```
+
+### Maven
+```
+<dependency>
+  <groupId>com.liuguangqiang.cookie</groupId>
+  <artifactId>library</artifactId>
+  <version>0.1</version>
+  <type>aar</type>
+</dependency>
+```
+
 ## License
 
     Copyright 2017 Eric Liu
