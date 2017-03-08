@@ -1,5 +1,9 @@
 <resources>
 
     <string name="app_name">Cookie</string>
-    
+
+    <string name="cookie_title">这是一个标题</string>
+    <string name="cookie_message">咦？你又变帅了！！！</string>
+    <string name="cookie_action">点击一下</string>
+
 </resources>

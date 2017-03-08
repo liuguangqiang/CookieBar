@@ -3,6 +3,7 @@ package com.liuguangqiang.cookie;
 import android.app.Activity;
 import android.support.annotation.ColorRes;
 import android.support.annotation.DrawableRes;
+import android.support.annotation.StringRes;
 import android.view.Gravity;
 import android.view.ViewGroup;
 
@@ -70,8 +71,18 @@ public class CookieBar {
             return this;
         }
 
+        public Builder setTitle(@StringRes int resId) {
+            params.title = context.getString(resId);
+            return this;
+        }
+
         public Builder setMessage(String message) {
             params.message = message;
+            return this;
+        }
+
+        public Builder setMessage(@StringRes int resId) {
+            params.message = context.getString(resId);
             return this;
         }
 
@@ -106,6 +117,12 @@ public class CookieBar {
             return this;
         }
 
+        public Builder setAction(@StringRes int resId, OnActionClickListener onActionClickListener) {
+            params.action = context.getString(resId);
+            params.onActionClickListener = onActionClickListener;
+            return this;
+        }
+
         public Builder setLayoutGravity(int layoutGravity) {
             params.layoutGravity = layoutGravity;
             return this;
@@ -121,10 +138,9 @@ public class CookieBar {
             cookie.show();
             return cookie;
         }
-
     }
 
-    public static class Params {
+    final static class Params {
 
         public String title;
 

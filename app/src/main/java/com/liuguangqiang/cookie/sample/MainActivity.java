@@ -22,8 +22,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 new CookieBar.Builder(MainActivity.this)
-                        .setTitle("这是一个标题")
-                        .setMessage("你又变帅了！！！咦？怎么没有标题？")
+                        .setTitle(R.string.cookie_title)
+                        .setMessage(R.string.cookie_message)
                         .show();
             }
         });
@@ -34,11 +34,11 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 new CookieBar
                         .Builder(MainActivity.this)
-                        .setTitle("提示")
+                        .setTitle(R.string.cookie_title)
                         .setIcon(R.mipmap.ic_launcher)
-                        .setMessage("你又变帅了！！！")
+                        .setMessage(R.string.cookie_message)
                         .setLayoutGravity(Gravity.BOTTOM)
-                        .setAction("点击一下", new OnActionClickListener() {
+                        .setAction(R.string.cookie_action, new OnActionClickListener() {
                             @Override
                             public void onClick() {
                                 Toast.makeText(getApplicationContext(), "点击后，我更帅了!", Toast.LENGTH_LONG).show();
@@ -53,11 +53,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 new CookieBar.Builder(MainActivity.this)
-                        .setTitle("提示")
+                        .setTitle(R.string.cookie_title)
                         .setIcon(R.mipmap.ic_launcher)
-                        .setMessage("你又变帅了！！！")
+                        .setMessage(R.string.cookie_message)
                         .setDuration(3000)
-                        .setAction("点击一下", new OnActionClickListener() {
+                        .setAction(R.string.cookie_action, new OnActionClickListener() {
                             @Override
                             public void onClick() {
                                 Toast.makeText(getApplicationContext(), "点击后，我更帅了!", Toast.LENGTH_LONG).show();
@@ -72,13 +72,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 new CookieBar.Builder(MainActivity.this)
-                        .setTitle("提示")
-                        .setMessage("你又变帅了！！！")
+                        .setTitle(R.string.cookie_title)
+                        .setMessage(R.string.cookie_message)
                         .setDuration(3000)
                         .setBackgroundColor(R.color.colorPrimary)
                         .setActionColor(android.R.color.white)
                         .setTitleColor(R.color.colorAccent)
-                        .setAction("点击一下", new OnActionClickListener() {
+                        .setAction(R.string.cookie_action, new OnActionClickListener() {
                             @Override
                             public void onClick() {
                                 Toast.makeText(getApplicationContext(), "点击后，我更帅了!", Toast.LENGTH_LONG).show();
@@ -88,4 +88,5 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
 }
