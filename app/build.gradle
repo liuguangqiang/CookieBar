@@ -3,6 +3,13 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
+
+    android {
+        lintOptions {
+            abortOnError false
+        }
+    }
+
     defaultConfig {
         applicationId "com.liuguangqiang.cookie.sample"
         minSdkVersion 15
