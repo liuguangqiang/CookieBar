@@ -5,10 +5,8 @@ android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
 
-    android {
-        lintOptions {
-            abortOnError false
-        }
+    lintOptions {
+        abortOnError false
     }
 
     defaultConfig {

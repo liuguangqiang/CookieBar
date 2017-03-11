@@ -1,13 +1,17 @@
 apply plugin: 'com.android.application'
+apply plugin:'im.fir.plugin.gradle'
 
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
 
-    android {
-        lintOptions {
-            abortOnError false
-        }
+    lintOptions {
+        abortOnError false
+    }
+
+    fir{
+        apiToken 'c7205d8417abec89edc200ab10d15d4a'
+        changeLog '测试上传的FIR'
     }
 
     defaultConfig {
