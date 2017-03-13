@@ -1,4 +1,4 @@
-Cookie
+Cookie [![Build Status](https://travis-ci.org/liuguangqiang/SwipeBack.png?branch=master)](https://travis-ci.org/liuguangqiang/CookieBar)
 ==============================================
 CookieBar is a lightweight library for showing a brief message at the top or bottom of the screen.
 
