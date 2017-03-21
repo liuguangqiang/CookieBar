@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="bottom"
-    android:background="@color/default_color"
+    android:background="@color/default_bg_color"
     android:gravity="center_vertical"
     android:orientation="horizontal"
     android:paddingBottom="16dp"
@@ -55,7 +55,7 @@
         android:layout_marginLeft="24dp"
         android:gravity="bottom"
         android:text="ACTION"
-        android:textColor="@color/action_color"
+        android:textColor="@color/default_action_color"
         android:textSize="14sp"
         android:textStyle="bold"
         android:visibility="gone" />

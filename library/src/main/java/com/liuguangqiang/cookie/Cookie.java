@@ -1,6 +1,7 @@
 package com.liuguangqiang.cookie;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
@@ -42,20 +43,50 @@ final class Cookie extends LinearLayout {
 
     public Cookie(@NonNull final Context context, @Nullable final AttributeSet attrs, final int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        initViews();
+        initViews(context);
     }
 
     public int getLayoutGravity() {
         return layoutGravity;
     }
 
-    private void initViews() {
+    private void initViews(Context context) {
         inflate(getContext(), R.layout.layout_cookie, this);
+
         layoutCookie = (LinearLayout) findViewById(R.id.cookie);
         tvTitle = (TextView) findViewById(R.id.tv_title);
         tvMessage = (TextView) findViewById(R.id.tv_message);
         ivIcon = (ImageView) findViewById(R.id.iv_icon);
         btnAction = (TextView) findViewById(R.id.btn_action);
+        initDefaultStyle(context);
+    }
+
+    /**
+     * Init the default text color or background color. You can change the default style by set the Theme's attributes.
+     *
+     *<pre>
+     *  <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+     *          <item name="cookieTitleColor">@color/default_title_color</item>
+     *          <item name="cookieMessageColor">@color/default_message_color</item>
+     *          <item name="cookieActionColor">@color/default_action_color</item>
+     *          <item name="cookieBackgroundColor">@color/default_bg_color</item>
+     *  </style>
+     *</pre>
+     *
+     * @param context
+     */
+    private void initDefaultStyle(Context context){
+        //Custom the default style of a cookie
+        int titleColor = ThemeResolver.getColor(context,R.attr.cookieTitleColor, Color.WHITE);
+        int messageColor = ThemeResolver.getColor(context,R.attr.cookieMessageColor, Color.WHITE);
+        int actionColor = ThemeResolver.getColor(context,R.attr.cookieActionColor, Color.WHITE);
+        int backgroundColor = ThemeResolver.getColor(context,R.attr.cookieBackgroundColor,
+                ContextCompat.getColor(context,R.color.default_bg_color));
+
+        tvTitle.setTextColor(titleColor);
+        tvMessage.setTextColor(messageColor);
+        btnAction.setTextColor(actionColor);
+        layoutCookie.setBackgroundColor(backgroundColor);
     }
 
     public void setParams(final CookieBar.Params params) {

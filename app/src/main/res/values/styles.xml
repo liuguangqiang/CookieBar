@@ -6,6 +6,12 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+
+        <!--Custom the default style of a cookie.-->
+        <item name="cookieTitleColor">@color/default_title_color</item>
+        <item name="cookieMessageColor">@color/default_message_color</item>
+        <item name="cookieActionColor">@color/default_action_color</item>
+        <item name="cookieBackgroundColor">@color/default_bg_color</item>
     </style>
 
     <!--Alerter-->

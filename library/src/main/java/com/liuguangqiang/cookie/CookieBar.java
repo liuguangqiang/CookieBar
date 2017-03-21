@@ -57,6 +57,11 @@ public class CookieBar {
 
         public Activity context;
 
+        /**
+         * Create a builder for an cookie.
+         *
+         * @param activity
+         */
         public Builder(Activity activity) {
             this.context = activity;
         }
