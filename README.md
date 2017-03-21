@@ -57,7 +57,7 @@ dependencies {
 </style>
 ```
 
-## Or dynamically change the style by a cookie builder.
+## Or dynamically change the style with a cookie builder.
  * layoutGravity
  * backgroundColor
  * titleColor
