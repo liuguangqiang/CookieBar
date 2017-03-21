@@ -10,7 +10,7 @@ CookieBar is a lightweight library for showing a brief message at the top or bot
 
 ```
 dependencies {
-   	compile 'com.liuguangqiang.cookie:library:0.1'
+   	compile 'com.liuguangqiang.cookie:library:0.2'
 }
 ```
 
@@ -46,7 +46,18 @@ dependencies {
                         .show();
 ```
 
-## Custom Style
+## You can change the default style by set the Theme's attributes.
+
+```
+<style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+   <item name="cookieTitleColor">@color/default_title_color</item>
+   <item name="cookieMessageColor">@color/default_message_color</item>
+   <item name="cookieActionColor">@color/default_action_color</item>
+   <item name="cookieBackgroundColor">@color/default_bg_color</item>
+</style>
+```
+
+## Or dynamically change the style by a cookie builder.
  * layoutGravity
  * backgroundColor
  * titleColor
