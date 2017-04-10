@@ -5,6 +5,6 @@ package com.liuguangqiang.cookie;
  */
 public interface OnActionClickListener {
 
-    void onClick();
+  void onClick();
 
 }
