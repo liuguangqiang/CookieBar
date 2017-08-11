@@ -116,6 +116,12 @@ final class Cookie extends LinearLayout {
         if (params.messageColor != 0) {
           tvMessage.setTextColor(ContextCompat.getColor(getContext(), params.messageColor));
         }
+
+        if (TextUtils.isEmpty(params.title)) {
+          LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) tvMessage
+              .getLayoutParams();
+          layoutParams.topMargin = 0;
+        }
       }
 
       //Action

@@ -53,8 +53,8 @@ public class MainActivity extends AppCompatActivity {
       @Override
       public void onClick(View view) {
         new CookieBar.Builder(MainActivity.this)
-            .setTitle(R.string.cookie_title)
-            .setIcon(R.mipmap.ic_launcher)
+//            .setTitle(R.string.cookie_title)
+            .setIcon(R.mipmap.alert)
             .setMessage(R.string.cookie_message)
             .setDuration(3000)
             .setAction(R.string.cookie_action, new OnActionClickListener() {
