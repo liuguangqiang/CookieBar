@@ -30,6 +30,7 @@ final class Cookie extends LinearLayout {
   private TextView tvMessage;
   private ImageView ivIcon;
   private TextView btnAction;
+  private ImageView btnActionWithIcon;
   private long duration = 2000;
   private int layoutGravity = Gravity.BOTTOM;
 
@@ -59,6 +60,7 @@ final class Cookie extends LinearLayout {
     tvMessage = (TextView) findViewById(R.id.tv_message);
     ivIcon = (ImageView) findViewById(R.id.iv_icon);
     btnAction = (TextView) findViewById(R.id.btn_action);
+    btnActionWithIcon = (ImageView) findViewById(R.id.btn_action_with_icon);
     initDefaultStyle(context);
   }
 
@@ -125,7 +127,8 @@ final class Cookie extends LinearLayout {
       }
 
       //Action
-      if (!TextUtils.isEmpty(params.action) && params.onActionClickListener != null) {
+      if ((!TextUtils.isEmpty(params.action) || params.actionIcon != 0)
+          && params.onActionClickListener != null) {
         btnAction.setVisibility(VISIBLE);
         btnAction.setText(params.action);
         btnAction.setOnClickListener(new OnClickListener() {
@@ -140,6 +143,19 @@ final class Cookie extends LinearLayout {
         if (params.actionColor != 0) {
           btnAction.setTextColor(ContextCompat.getColor(getContext(), params.actionColor));
         }
+      }
+
+      if (params.actionIcon != 0 && params.onActionClickListener != null) {
+        btnAction.setVisibility(GONE);
+        btnActionWithIcon.setVisibility(VISIBLE);
+        btnActionWithIcon.setBackgroundResource(params.actionIcon);
+        btnActionWithIcon.setOnClickListener(new OnClickListener() {
+          @Override
+          public void onClick(View view) {
+            params.onActionClickListener.onClick();
+            dismiss();
+          }
+        });
       }
 
       //Background

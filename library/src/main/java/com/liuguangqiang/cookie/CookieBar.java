@@ -125,6 +125,13 @@ public class CookieBar {
       return this;
     }
 
+    public Builder setActionWithIcon(@DrawableRes int resId,
+        OnActionClickListener onActionClickListener) {
+      params.actionIcon = resId;
+      params.onActionClickListener = onActionClickListener;
+      return this;
+    }
+
     public Builder setLayoutGravity(int layoutGravity) {
       params.layoutGravity = layoutGravity;
       return this;
@@ -166,6 +173,7 @@ public class CookieBar {
 
     public int layoutGravity = Gravity.TOP;
 
+    public int actionIcon;
   }
 
 }

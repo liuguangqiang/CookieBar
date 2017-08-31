@@ -65,6 +65,10 @@ dependencies {
  * actionColor
  * duration
 
+## New Features
+#### 1.0.0
+ * The action button could be replaced by a icon.
+
 ## License
 
     Copyright 2017 Eric Liu

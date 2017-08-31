@@ -53,11 +53,9 @@ public class MainActivity extends AppCompatActivity {
       @Override
       public void onClick(View view) {
         new CookieBar.Builder(MainActivity.this)
-//            .setTitle(R.string.cookie_title)
-            .setIcon(R.mipmap.alert)
             .setMessage(R.string.cookie_message)
-            .setDuration(3000)
-            .setAction(R.string.cookie_action, new OnActionClickListener() {
+            .setDuration(10000)
+            .setActionWithIcon(R.mipmap.ic_action_close, new OnActionClickListener() {
               @Override
               public void onClick() {
                 Toast.makeText(getApplicationContext(), "点击后，我更帅了!", Toast.LENGTH_LONG).show();
