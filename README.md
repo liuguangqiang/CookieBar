@@ -10,7 +10,7 @@ CookieBar is a lightweight library for showing a brief message at the top or bot
 
 ```
 dependencies {
-   	compile 'com.liuguangqiang.cookie:library:0.3'
+   	compile 'com.liuguangqiang.cookie:library:1.0'
 }
 ```
 
@@ -19,7 +19,7 @@ dependencies {
 <dependency>
   <groupId>com.liuguangqiang.cookie</groupId>
   <artifactId>library</artifactId>
-  <version>0.3</version>
+  <version>1.0</version>
   <type>aar</type>
 </dependency>
 ```
