@@ -4,9 +4,6 @@ buildscript {
     repositories {
         jcenter()
 
-        maven {
-            url "http://maven.bughd.com/public"
-        }
         google()
     }
 
